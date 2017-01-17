@@ -47,7 +47,6 @@ public class driveTrain extends Subsystem {
 
 //WM - Make digital Y cable by enabling leaders and followers
    	public driveTrain() {
-   		
    		rightDriveLead.changeControlMode(TalonControlMode.PercentVbus);
    		rightDriveFollow.changeControlMode(TalonControlMode.Follower);
    		rightDriveFollow.set(rightDriveLead.getDeviceID());
