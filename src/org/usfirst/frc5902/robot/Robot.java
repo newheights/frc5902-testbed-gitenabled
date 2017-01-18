@@ -17,6 +17,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc5902.robot.commands.*;
 import org.usfirst.frc5902.robot.subsystems.*;
 
@@ -108,6 +110,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Xbox X axis", oi.driverXbox.getX());
+        SmartDashboard.putNumber("Xbox Y axis", oi.driverXbox.getY());
     }
 
     /**
@@ -115,5 +119,6 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+     
     }
 }

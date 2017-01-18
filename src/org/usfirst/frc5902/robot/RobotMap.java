@@ -75,6 +75,7 @@ public class RobotMap {
         driveTrainrightDriveFollow = new CANTalon(4);
         LiveWindow.addActuator("driveTrain", "rightDriveFollow", driveTrainrightDriveFollow);
         //WM- *END* Init of driveTrainFollow
+        
        
     }
 }
