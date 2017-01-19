@@ -1,8 +1,6 @@
 # The Wire Clippers - FRC 5902 Robot Code - 2017 Season
 2017 is our 2nd year in the FIRST Robotics competition.
 
-Test iMacGIT
-
 We used Robot builder and followed along these videos from WPI 
 https://www.youtube.com/playlist?list=PLYA9eZLlgz7t9Oleid2wtlgnvhGObeKzp
 
