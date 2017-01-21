@@ -89,18 +89,18 @@ public class Robot extends IterativeRobot {
         // END EYEs CAMERA CODE
         
         // GRIP CAMERA CODE
-        //        UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-        //        camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
-        //        
-        //        visionThread = new VisionThread(camera, new Pipeline(), pipeline -> {
-        //            if (!pipeline.filterContoursOutput().isEmpty()) {
-        //                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-        //                synchronized (imgLock) {
-        //                    centerX = r.x + (r.width / 2);
-        //                }
-        //            }
-        //        });
-        //		  visionThread.start();
+                UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+                camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
+                
+                visionThread = new VisionThread(camera, new Pipeline(), pipeline -> {
+                    if (!pipeline.filterContoursOutput().isEmpty()) {
+                        Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+                        synchronized (imgLock) {
+                            centerX = r.x + (r.width / 2);
+                        }
+                    }
+                });
+        		  visionThread.start();
         // END GRIP CAMERA CODE
   
         
