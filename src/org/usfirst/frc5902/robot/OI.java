@@ -93,7 +93,7 @@ public class OI {
         SmartDashboard.putData("autoBaseline", new autoBaseline());
         SmartDashboard.putData("intakeDoNothing", new intakeDoNothing());
         SmartDashboard.putData("startIntake", new startIntake());
-        SmartDashboard.putData("stopIntake", new stopIntake());
+         // SmartDashboard.putData("stopIntake", new stopIntake());
         SmartDashboard.putData("startShooter", new startShooter());
         SmartDashboard.putData("stopShooter", new stopShooter());
         SmartDashboard.putData("moveCamera", new moveCamera());
@@ -103,7 +103,8 @@ public class OI {
         button1 = new JoystickButton(driverXbox, 1);
         button1.whileHeld(new moveCamera());
 
-        
+        button3 = new JoystickButton(driverXbox, 1);
+        button3.toggleWhenPressed(new startIntake());
         
 
     }
