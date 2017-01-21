@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.vision.VisionThread;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
@@ -93,18 +94,17 @@ public class Robot extends IterativeRobot {
         // END EYEs CAMERA CODE
         
         // GRIP CAMERA CODE
-        //        UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-        //        camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
-        //        
-        //        visionThread = new VisionThread(camera, new Pipeline(), pipeline -> {
-        //            if (!pipeline.filterContoursOutput().isEmpty()) {
-        //                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-        //                synchronized (imgLock) {
-        //                    centerX = r.x + (r.width / 2);
-        //                }
-        //            }
-        //        });
-        //		  visionThread.start();
+                
+//                
+//                visionThread = new VisionThread(camera, new GripPipeline(), pipeline -> {
+//                    if (!pipeline.filterContoursOutput().isEmpty()) {
+//                        Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+//                        synchronized (imgLock) {
+//                            centerX = r.x + (r.width / 2);
+//                        }
+//                    }
+//                });
+//       		  visionThread.start();
         // END GRIP CAMERA CODE
   
         
