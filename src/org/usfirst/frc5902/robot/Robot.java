@@ -104,12 +104,9 @@ public class Robot extends IterativeRobot {
         // END EYEs CAMERA CODE
         
         // GRIP CAMERA CODE 
-        
+        UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+        camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
         visionThread = new VisionThread(camera, new GripPipeline(), pipeline -> {
-        	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-            camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
-            
-            
             while(true) {
                 cvSink.grabFrame(source);
                 Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
