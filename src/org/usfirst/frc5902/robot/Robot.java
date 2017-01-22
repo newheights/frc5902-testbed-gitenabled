@@ -13,8 +13,16 @@
 
 package org.usfirst.frc5902.robot;
 
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
+import org.opencv.core.Rect;
+import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc5902.robot.commands.autoCommandExample;
+import org.usfirst.frc5902.robot.subsystems.cameraControl;
+import org.usfirst.frc5902.robot.subsystems.driveTrain;
+import org.usfirst.frc5902.robot.subsystems.intake;
+import org.usfirst.frc5902.robot.subsystems.sensorBase;
+import org.usfirst.frc5902.robot.subsystems.shooter;
+import org.usfirst.frc5902.robot.subsystems.trackerPipeline;
+
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -24,11 +32,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
-
-import org.opencv.core.Mat;
-import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc5902.robot.commands.*;
-import org.usfirst.frc5902.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -84,43 +87,24 @@ public class Robot extends IterativeRobot {
         /**    
          ** 	CAMERA CODE
          */        
-//        new Thread(() -> {
-//            UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-//            camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
-//            
-//            CvSink cvSink = CameraServer.getInstance().getVideo();
-//            CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-//            
-//            Mat source = new Mat();
-//            Mat output = new Mat();
-//            
-//            while(true) {
-//                cvSink.grabFrame(source);
-//                Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-//                outputStream.putFrame(output);
-//            }
-//        }).start();
         
-        // END EYEs CAMERA CODE
-        
-        // GRIP CAMERA CODE 
+     // GRIP CAMERA CODE
         UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
         camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
-//        visionThread = new VisionThread(camera, new Pipeline(), pipeline -> {
-//            while(true) {
-//                cvSink.grabFrame(source);
-//                Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-//                outputStream.putFrame(output);
-//            
-//                    if (!pipeline.filterContoursOutput().isEmpty()) {
-//                        Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-//                        synchronized (imgLock) {
-//                            centerX = r.x + (r.width / 2);
-//                        }
-//                    }
-//                }});
-//        		  visionThread.start();
+        visionThread = new VisionThread(camera, new trackerPipeline(), pipeline -> {
+            if (!pipeline.filterContoursOutput().isEmpty()) {
+                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+                synchronized (imgLock) {
+                    centerX = r.x + (r.width / 2);
+                }
+            }
+        });
+                visionThread.start();
         // END GRIP CAMERA CODE
+                
+                /**    
+                 ** 	END CAMERA CODE
+                 */ 
   
         
         // OI must be constructed after subsystems. If the OI creates Commands
