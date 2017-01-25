@@ -13,9 +13,6 @@ package org.usfirst.frc5902.robot.subsystems;
 
 import org.usfirst.frc5902.robot.RobotMap;
 import org.usfirst.frc5902.robot.commands.*;
-
-import com.ctre.CANTalon;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
