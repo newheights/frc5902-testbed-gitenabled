@@ -138,6 +138,8 @@ public class Robot extends IterativeRobot {
         autoChooser.addDefault("Autonomous Example", new autoCommandExample());
         
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
+        
+        // Put encoder Data Here
 
     }
 
