@@ -181,6 +181,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Xbox X axis", oi.driverXbox.getX());
         SmartDashboard.putNumber("Xbox Y axis", oi.driverXbox.getY());
         SmartDashboard.putNumber("Gyro Reading", gyro.getAngle());
+        SmartDashboard.putNumber("Throttle Reading", oi.logitech.getThrottle());
+
     }
 
     /**
