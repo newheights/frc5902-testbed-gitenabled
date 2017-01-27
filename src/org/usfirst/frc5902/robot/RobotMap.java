@@ -30,9 +30,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
+@SuppressWarnings("unused")
 public class RobotMap {
-    // Drive Train
-	static sensorBase collectionOfSensors = new sensorBase();
 		//LEFT 
 		public static CANTalon driveTrainleftDriveFollow;
 	    public static CANTalon driveTrainleftDriveLead;
@@ -40,6 +39,10 @@ public class RobotMap {
 	    //RIGHT 
 	    public static CANTalon driveTrainrightDriveFollow;
 	    public static CANTalon driveTrainrightDriveLead;
+	    
+	    //Shooter
+	    public static CANTalon shooterLeftLead;
+	    public static CANTalon shooterRightFollow;
 	    
 	    // Robot Drive
 	    public static RobotDrive driveTrainrobotDrive;
@@ -66,6 +69,13 @@ public class RobotMap {
 	        
 	        driveTrainrightDriveFollow = new CANTalon(4);
 	        LiveWindow.addActuator("driveTrain", "rightDriveFollow", driveTrainrightDriveFollow);
+	        
+	        //shooter motors
+	        shooterLeftLead = new CANTalon(5);
+	        LiveWindow.addActuator("Shooter", "shooterLeftLead", shooterLeftLead);
+	        
+	        shooterRightFollow = new CANTalon(6);
+	        LiveWindow.addActuator("Shooter", "shooterRightFollow", shooterRightFollow);
 	    
 	//Create Drive Train    
         driveTrainrobotDrive = new RobotDrive(driveTrainleftDriveLead, driveTrainrightDriveLead);
