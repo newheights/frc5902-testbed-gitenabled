@@ -87,7 +87,6 @@ public class RobotMap {
         LiveWindow.addActuator("intake", "intakeMotor", intakeMotor );
         
         // Encoders and More
-        collectionOfSensors.initDefaultCommand();
        
     }
 }
