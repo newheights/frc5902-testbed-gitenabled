@@ -100,6 +100,10 @@ public class OI {
 
         button1 = new JoystickButton(driverXbox, 1);
         button1.whileHeld(new moveCamera());
+        
+        button5 = new JoystickButton(driverXbox, 1);
+        button5.whileHeld(new startShooter());
+
 
         button6 = new JoystickButton(driverXbox, 6);
         button6.toggleWhenPressed(new startIntake());
