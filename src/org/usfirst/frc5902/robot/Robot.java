@@ -208,7 +208,9 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Gyro Reading", Math.round(gyro.getAngle()));
         SmartDashboard.putNumber("Throttle Reading", oi.logitech.getThrottle());
         SmartDashboard.putNumber("Encoder 1 Reading", encoder1.pulseWidthPos);
+        SmartDashboard.putNumber("Encoder 1 Velocity", encoder1.pulseWidthVelocity);
         SmartDashboard.putNumber("Encoder 2 Reading", encoder2.pulseWidthPos);
+        SmartDashboard.putNumber("Encoder 2 Velocity", encoder2.pulseWidthVelocity);
     }
 
     /**
