@@ -204,4 +204,17 @@ public class Robot extends IterativeRobot {
         LiveWindow.run();
      
     }
+    
+    
+    /**To move the robot with a GRIP inputStream we have to create a loop
+     * in Teleop or method on it's only (possibly called by a button)
+     * that will run GRIP over and over again
+     * this link give some info, we have to grab data from a network table out algorithm
+     * is running to see if it gives us the blob with proper spec (aka: area, pos)
+     * https://www.chiefdelphi.com/forums/showthread.php?t=141283
+     * 
+     * When it meet the data then we can enter the logic to move the robot - Harrison
+     * 
+     */
+    
 }
