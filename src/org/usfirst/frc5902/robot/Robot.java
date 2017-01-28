@@ -99,8 +99,9 @@ public class Robot extends IterativeRobot {
         //Make Gyro & Reset to 0 & Calibrate
         
         gyro = new ADXRS450_Gyro(); 
-		gyro.reset();
-		gyro.calibrate();
+        // Commented out - actions are performed in gyro init
+		//gyro.reset();
+		//gyro.calibrate();
 
 		// Encoder Code
 		encoder1 = new encoderDev(RobotMap.driveTrainleftDriveLead);
@@ -204,7 +205,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Xbox X axis", oi.driverXbox.getX());
         SmartDashboard.putNumber("Xbox Y axis", oi.driverXbox.getY());
-        SmartDashboard.putNumber("Gyro Reading", gyro.getAngle());
+        SmartDashboard.putNumber("Gyro Reading", Math.round(gyro.getAngle()));
         SmartDashboard.putNumber("Throttle Reading", oi.logitech.getThrottle());
         SmartDashboard.putNumber("Encoder 1 Reading", encoder1.pulseWidthPos);
         SmartDashboard.putNumber("Encoder 2 Reading", encoder2.pulseWidthPos);
