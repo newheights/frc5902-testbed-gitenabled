@@ -77,10 +77,12 @@ public class driveTrain extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     public void arcadeDrive(double move, double rotate, double speed) {
-    	
     	  robotDrive.arcadeDrive(move*speed, rotate*speed);
-    	 
     }
+    
+    public void autonomousDrive(double rotate, double speed) {	
+  	  robotDrive.drive(speed, rotate);
+  	}
     
     public void driveStraight(double speed) {
     	robotDrive.tankDrive(speed, speed);
