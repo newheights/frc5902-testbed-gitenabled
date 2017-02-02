@@ -11,7 +11,7 @@ public class GYROISCOOL extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public double angle;
-	ADXRS450_Gyro gyro; 
+	public ADXRS450_Gyro gyro; 
 	boolean isActive;
 	public GYROISCOOL() {
 		gyro = new ADXRS450_Gyro();
