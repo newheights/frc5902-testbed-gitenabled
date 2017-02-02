@@ -24,7 +24,7 @@ import org.usfirst.frc5902.robot.subsystems.intake;
 import org.usfirst.frc5902.robot.subsystems.sensorBase;
 import org.usfirst.frc5902.robot.subsystems.shooter;
 import org.usfirst.frc5902.robot.subsystems.trackerPipeline;
-
+import org.usfirst.frc5902.robot.subsystems.GYROISCOOL;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -36,7 +36,6 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 
 
 
@@ -68,7 +67,7 @@ public class Robot extends IterativeRobot {
     public static double speed;
     
     // Make Gyro
-    public static ADXRS450_Gyro gyro;
+    public static GYROISCOOL gyro;
     
     // GRIP Defines
     private static final int IMG_WIDTH = 320;
@@ -98,7 +97,7 @@ public class Robot extends IterativeRobot {
        
         //Make Gyro & Reset to 0 & Calibrate
         
-        gyro = new ADXRS450_Gyro(); 
+        gyro = new GYROISCOOL(); 
         // Commented out - actions are performed in gyro init
 		//gyro.reset();
 		//gyro.calibrate();
@@ -205,7 +204,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Xbox X axis", oi.driverXbox.getX());
         SmartDashboard.putNumber("Xbox Y axis", oi.driverXbox.getY());
-        SmartDashboard.putNumber("Gyro Reading", Math.round(gyro.getAngle()));
+        SmartDashboard.putNumber("Gyro Reading", gyro.angle);
         SmartDashboard.putNumber("Throttle Reading", oi.logitech.getThrottle());
         SmartDashboard.putNumber("Encoder 1 Reading", encoder1.pulseWidthPos);
         SmartDashboard.putNumber("Encoder 1 Velocity", encoder1.pulseWidthVelocity);
