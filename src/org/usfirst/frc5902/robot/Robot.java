@@ -68,7 +68,7 @@ public class Robot extends IterativeRobot {
     public static double speed;
     
     // Make Gyro
-    ADXRS450_Gyro gyro;
+    public static ADXRS450_Gyro gyro;
     
     // GRIP Defines
     private static final int IMG_WIDTH = 320;
