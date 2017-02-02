@@ -102,6 +102,10 @@ public class OI {
         button1 = new JoystickButton(driverXbox, 1);
         button1.whileHeld(new moveCamera());
         
+        button2 = new JoystickButton(driverXbox, 1);
+        button2.whileHeld(new gripEnd());
+        button2.whenReleased(new gripRestart());
+        
         button5 = new JoystickButton(driverXbox, 1);
         button5.whileHeld(new startShooter());
 

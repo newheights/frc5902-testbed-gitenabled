@@ -7,9 +7,8 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class gripRunner extends Command {
-	public double contoursArea;
-    public gripRunner() {
+public class gripEnd extends Command {
+    public gripEnd() {
     	requires(Robot.table);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,7 +20,7 @@ public class gripRunner extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	contoursArea = Robot.table.area;
+    	Robot.table.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
