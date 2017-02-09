@@ -65,8 +65,8 @@ public class Robot extends IterativeRobot {
     
     // GRIP Defines
     
-    private static final int IMG_WIDTH = 320;
-	private static final int IMG_HEIGHT = 240;
+    private static final int IMG_WIDTH = 640;
+	private static final int IMG_HEIGHT = 380;
 	
 	private VisionThread visionThread;
 	private double centerX = 0.0;
