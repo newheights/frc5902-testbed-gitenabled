@@ -102,7 +102,7 @@ public class OI {
 
         button6 = new JoystickButton(driverXbox, 6);
         button6.toggleWhenPressed(new startIntake());
-        
+
 
     }
 

@@ -35,10 +35,10 @@ public class intake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void intakeDirection() {
-    	intakeMotor.set(-.75);
+    	intakeMotor.set(.75);
     }
     public void ejectDirection() {
-    	intakeMotor.set(1);
+    	intakeMotor.set(-.75);
     }
     public void stop() {
     	intakeMotor.set(0);

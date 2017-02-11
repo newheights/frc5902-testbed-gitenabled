@@ -39,11 +39,9 @@ public class RobotMap {
 	    public static CANTalon driveTrainrightDriveFollow;
 	    public static CANTalon driveTrainrightDriveLead;
 	    
-	    /**
+	    
 	    //Shooter
-	    public static CANTalon shooterLeftLead;
-	    public static CANTalon shooterRightFollow;
-	    */
+	    public static CANTalon shooter;
 	    // Robot Drive
 	    public static RobotDrive driveTrainrobotDrive;
     
@@ -71,14 +69,12 @@ public class RobotMap {
 	        driveTrainrightDriveFollow = new CANTalon(4);
 	        LiveWindow.addActuator("driveTrain", "rightDriveFollow", driveTrainrightDriveFollow);
 	      
-	        /**
-	        //shooter motors
-	        shooterLeftLead = new CANTalon(5);
-	        LiveWindow.addActuator("Shooter", "shooterLeftLead", shooterLeftLead);
 	        
-	        shooterRightFollow = new CANTalon(6);
-	        LiveWindow.addActuator("Shooter", "shooterRightFollow", shooterRightFollow);
-	    	*/
+	        //shooter motors
+	        shooter = new CANTalon(5);
+	        LiveWindow.addActuator("Shooter", "shooter", shooter);
+	        
+	        
 	//Create Drive Train    
         driveTrainrobotDrive = new RobotDrive(driveTrainleftDriveLead, driveTrainrightDriveLead);
         
