@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+@SuppressWarnings("unused")
 public class gyroRead extends Command {
 
     public gyroRead() {

@@ -64,7 +64,6 @@ public class Robot extends IterativeRobot {
     
     // Make Gyro
     ADXRS450_Gyro gyro;
-    
     // GRIP Defines
     
     private static final int IMG_WIDTH = 640;
