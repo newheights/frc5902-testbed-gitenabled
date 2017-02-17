@@ -31,7 +31,6 @@ public class encoderDev extends Subsystem {
 	}
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
 		
 	}
 	public void run(CANTalon _tal) {
