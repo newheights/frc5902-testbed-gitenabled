@@ -23,7 +23,7 @@ import org.usfirst.frc5902.robot.subsystems.intake;
 import org.usfirst.frc5902.robot.subsystems.sensorBase;
 import org.usfirst.frc5902.robot.subsystems.shooter;
 import org.usfirst.frc5902.robot.subsystems.trackerPipeline;
-
+import org.usfirst.frc5902.robot.subsystems.gyro;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -63,7 +63,7 @@ public class Robot extends IterativeRobot {
     public static double speed;
     
     // Make Gyro
-    ADXRS450_Gyro gyro;
+    gyro gyro;
     // GRIP Defines
     
     private static final int IMG_WIDTH = 640;
@@ -94,9 +94,7 @@ public class Robot extends IterativeRobot {
        
         //Make Gyro & Reset to 0 & Calibrate
         
-        gyro = new ADXRS450_Gyro(); 
-		gyro.reset();
-		gyro.calibrate();
+        gyro = new gyro();
 		encoder1 = new encoderDev(RobotMap.shooter);
 		encoder2 = new encoderDev(RobotMap.driveTrainleftDriveLead);
 		
@@ -191,6 +189,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Encoder 2 Velocity", encoder2.pulseWidthVelocity);
         encoder1.run(RobotMap.shooter);
         encoder2.run(RobotMap.driveTrainleftDriveLead);
+        gyro.run(gyro);
     }
 
     /**

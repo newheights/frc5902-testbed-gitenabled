@@ -52,7 +52,6 @@ public class RobotMap {
     //Intake
     public static Spark intakeMotor;
    
-
     public static void init() {
         
     		//LEFT Drive Train
