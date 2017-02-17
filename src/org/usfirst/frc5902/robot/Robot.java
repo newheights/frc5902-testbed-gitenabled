@@ -99,6 +99,7 @@ public class Robot extends IterativeRobot {
 		gyro.calibrate();
 		encoder1 = new encoderDev(RobotMap.shooter);
 		encoder2 = new encoderDev(RobotMap.driveTrainleftDriveLead);
+		
         /**    
          ** 	CAMERA CODE
          */        
@@ -188,6 +189,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Encoder 1 Velocity", encoder1.pulseWidthVelocity);
         SmartDashboard.putNumber("Encoder 2 Reading", encoder2.pulseWidthPos);
         SmartDashboard.putNumber("Encoder 2 Velocity", encoder2.pulseWidthVelocity);
+        encoder1.run(RobotMap.shooter);
+        encoder2.run(RobotMap.driveTrainleftDriveLead);
     }
 
     /**

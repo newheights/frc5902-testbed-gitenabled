@@ -18,18 +18,29 @@ public class encoderDev extends Subsystem {
 	public int pulseWidthRiseToFallUs;
 	public int pulseWidthRiseToRiseUs;
 	public int pulseWidthVelocity;
+	public FeedbackDeviceStatus sensorstatus;
+	public boolean sensorPluggedIn;
     public encoderDev(CANTalon _tal) {
+    	_tal.reset();
     	pulseWidthPos = _tal.getPulseWidthPosition();
     	pulseWidthRiseToFallUs = _tal.getPulseWidthRiseToFallUs();
     	pulseWidthRiseToRiseUs = _tal.getPulseWidthRiseToRiseUs();
     	pulseWidthVelocity = _tal.getPulseWidthVelocity();
-    	FeedbackDeviceStatus sensorstatus = _tal.isSensorPresent(FeedbackDevice.CtreMagEncoder_Absolute);
-    	boolean sensorPluggedIn = (FeedbackDeviceStatus.FeedbackStatusPresent == sensorstatus);
+    	sensorstatus = _tal.isSensorPresent(FeedbackDevice.CtreMagEncoder_Absolute);
+    	sensorPluggedIn = (FeedbackDeviceStatus.FeedbackStatusPresent == sensorstatus);
 	}
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
 		
+	}
+	public void run(CANTalon _tal) {
+		this.pulseWidthPos = _tal.getPulseWidthPosition();
+    	this.pulseWidthRiseToFallUs = _tal.getPulseWidthRiseToFallUs();
+    	this.pulseWidthRiseToRiseUs = _tal.getPulseWidthRiseToRiseUs();
+    	this.pulseWidthVelocity = _tal.getPulseWidthVelocity();
+    	this.sensorstatus = _tal.isSensorPresent(FeedbackDevice.CtreMagEncoder_Absolute);
+    	this.sensorPluggedIn = (FeedbackDeviceStatus.FeedbackStatusPresent == sensorstatus);
 	}
 }
 
