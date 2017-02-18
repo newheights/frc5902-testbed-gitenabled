@@ -48,18 +48,10 @@ public class shooter extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     	//shooterLeftLead.changeControlMode(TalonControlMode.PercentVbus);
     }
-    public void ejectDirection() {
-    	shooter.set(1);
+    public void ejectDirection(double speed) {
+    	shooter.set(speed);
     }
-    public void ejectDirection75() {
-    	shooter.set(.75);
-
-    }
-    public void ejectDirection25() {
-    	shooter.set(.25);
-
-    }
-    public void stop() {
+       public void stop() {
     	shooter.set(0);
     }
 }

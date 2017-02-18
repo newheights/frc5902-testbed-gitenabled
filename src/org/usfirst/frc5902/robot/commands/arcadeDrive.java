@@ -42,8 +42,8 @@ public class arcadeDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (Robot.oi.getlogitech().getThrottle() < 0) {
-    			Robot.speed = -Robot.oi.getlogitech().getThrottle();	    	
-    Robot.driveTrain.arcadeDrive(Robot.oi.getlogitech().getY(), -Robot.oi.getlogitech().getZ(), Robot.speed);}
+    		Robot.speed = -Robot.oi.getlogitech().getThrottle();	    	
+    		Robot.driveTrain.arcadeDrive(Robot.oi.getlogitech().getY(), -Robot.oi.getlogitech().getZ(), Robot.speed);}
     	else {
     		Robot.speed = -Robot.oi.getlogitech().getThrottle();	    	
     	    Robot.driveTrain.arcadeDrive(Robot.oi.getlogitech().getY(), Robot.oi.getlogitech().getZ(), Robot.speed);

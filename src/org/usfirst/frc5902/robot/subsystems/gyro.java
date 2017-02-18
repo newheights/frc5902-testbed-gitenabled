@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class gyro extends Subsystem {
 	public ADXRS450_Gyro gyro;
-	private int angle;
+	private double angle;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public gyro () {
@@ -21,7 +21,7 @@ public class gyro extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void run(gyro gyro) {
-    	angle = (int) gyro.gyro.getAngle();
+    	angle = gyro.gyro.getAngle();
     }
     public void reset(gyro gyro) {
     	gyro.gyro.reset();
@@ -29,7 +29,7 @@ public class gyro extends Subsystem {
     public void calibrate(gyro gyro) {
     	gyro.gyro.calibrate();
     }
-    public int getAngle() {
+    public double getAngle() {
     	return angle;
     }
     
