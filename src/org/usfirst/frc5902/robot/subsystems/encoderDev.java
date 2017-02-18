@@ -21,13 +21,7 @@ public class encoderDev extends Subsystem {
 	public FeedbackDeviceStatus sensorstatus;
 	public boolean sensorPluggedIn;
     public encoderDev(CANTalon _tal) {
-    	_tal.reset();
-    	pulseWidthPos = _tal.getPulseWidthPosition();
-    	pulseWidthRiseToFallUs = _tal.getPulseWidthRiseToFallUs();
-    	pulseWidthRiseToRiseUs = _tal.getPulseWidthRiseToRiseUs();
-    	pulseWidthVelocity = _tal.getPulseWidthVelocity();
-    	sensorstatus = _tal.isSensorPresent(FeedbackDevice.CtreMagEncoder_Absolute);
-    	sensorPluggedIn = (FeedbackDeviceStatus.FeedbackStatusPresent == sensorstatus);
+    	_tal.setPosition(0);
 	}
 	@Override
 	protected void initDefaultCommand() {

@@ -31,19 +31,19 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class RobotMap {
     // Drive Train
 	
-		//LEFT 
-		public static CANTalon driveTrainleftDriveFollow;
-	    public static CANTalon driveTrainleftDriveLead;
+	//LEFT 
+	public static CANTalon driveTrainleftDriveFollow;
+	public static CANTalon driveTrainleftDriveLead;
 	    
-	    //RIGHT 
-	    public static CANTalon driveTrainrightDriveFollow;
-	    public static CANTalon driveTrainrightDriveLead;
+	//RIGHT 
+	public static CANTalon driveTrainrightDriveFollow;
+	public static CANTalon driveTrainrightDriveLead;
 	    
 	    
-	    //Shooter
-	    public static CANTalon shooter;
-	    // Robot Drive
-	    public static RobotDrive driveTrainrobotDrive;
+	//Shooter
+	public static CANTalon shooter;
+	// Robot Drive
+	public static RobotDrive driveTrainrobotDrive;
     
     //Camera Pan Tilt
     public static Servo cameraControlpanServo;
@@ -75,24 +75,24 @@ public class RobotMap {
 	        LiveWindow.addActuator("Shooter", "shooter", shooter);
 	        
 	        
-	//Create Drive Train    
-        driveTrainrobotDrive = new RobotDrive(driveTrainleftDriveLead, driveTrainrightDriveLead);
+	        //Create Drive Train    
+	        driveTrainrobotDrive = new RobotDrive(driveTrainleftDriveLead, driveTrainrightDriveLead);
         
-        driveTrainrobotDrive.setSafetyEnabled(true);
-        driveTrainrobotDrive.setExpiration(0.1);
-        driveTrainrobotDrive.setSensitivity(0.5);
-        driveTrainrobotDrive.setMaxOutput(1.0);
+	        driveTrainrobotDrive.setSafetyEnabled(true);
+	        driveTrainrobotDrive.setExpiration(0.1);
+        	driveTrainrobotDrive.setSensitivity(0.5);
+        	driveTrainrobotDrive.setMaxOutput(1.0);
 
-        // Camera Control Servo
-        cameraControlpanServo = new Servo(0);
-        LiveWindow.addActuator("cameraControl", "panServo", cameraControlpanServo);
+        	// Camera Control Servo
+        	cameraControlpanServo = new Servo(0);
+        	LiveWindow.addActuator("cameraControl", "panServo", cameraControlpanServo);
         
-        cameraControltiltServo = new Servo(1);
-        LiveWindow.addActuator("cameraControl", "tiltServo", cameraControltiltServo);
+        	cameraControltiltServo = new Servo(1);
+        	LiveWindow.addActuator("cameraControl", "tiltServo", cameraControltiltServo);
     
-        // Intake Motor
-        intakeMotor = new Spark(2);
-        LiveWindow.addActuator("intake", "intakeMotor", intakeMotor );
+        	// Intake Motor
+        	intakeMotor = new Spark(2);
+        	LiveWindow.addActuator("intake", "intakeMotor", intakeMotor );
        
     }
 }
