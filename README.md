@@ -45,14 +45,50 @@ On the smart dashboard we have the following
 
 ## 2017 Driver Controls
 
+Controls:
+
+- A button (button 1) - Hold to enable camera control
+- B button (button 2) - Press to restart camera feed (?)
+- X button (button 3) -
+- Y button (button 4) -
+- Left bumper (button 5) - Hold to activate shooter
+- Right bumper (button 6) - Press to intake
+- Left stick button (button 7) -
+- Right stick button (button 8) -
+- START button (button 9) -
+- BACK button (button 10) -
+- HOME button (button 11) -
+- D-pad up (button 12) -
+- D-pad down (button 13) -
+- D-pad left (button 14) -
+- D-pad right (button 15) -
+
+
+
+
 ### Driver Logitech Joystick - Operator Interface Assignments
 
-| Button  | Command |
-| ------------- | ------------- |
-| Joystick  | Regular ArcadeDrive  |
+| Button  | Button # | Command |
+| ------------- | ------------- | ------------- |
+| Joystick  | NA | Regular ArcadeDrive  |
 
 ### Driver Xbox - Operator Interface Assignments
 
-| Button  | Command |
-| ------------- | ------------- |
-| Main joystick | Camera Control (Pan/Tilt) |
+| Button  | Button # | Command |
+| ------------- | ------------- | ------------- |
+| Left analog stick | NA | Camera Control (Pan/Tilt) When Camera Button Held |
+| A Button | 1 | Assignment |
+| B Button | 2 | Assignment |
+| X Button | 3 | Assignment |
+| Y Button | 4 | Assignment |
+| Left Bumper | 5 | Assignment |
+| Right Bumper | 6 | Toggle - Intake System |
+| Left Stick Button | 7 | Assignment |
+| Right Stick Button | 8 | Assignment |
+| START Button | 9 | Assignment |
+| BACK Button | 10 | Assignment |
+| HOME Button | 11 | Assignment |
+| D-Pad Up | 12 | Assignment |
+| D-Pad Down | 13 | Assignment |
+| D-Pad Left | 14 | Assignment |
+| D-Pad Right | 15 | Assignment |
