@@ -100,7 +100,7 @@ public class Robot extends IterativeRobot {
          ** 	CAMERA CODE
          */        
         
-		// GRIP CAMERA CODE
+		/*// GRIP CAMERA CODE
         UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
         camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
         visionThread = new VisionThread(camera, new trackerPipeline(), pipeline -> {
@@ -113,7 +113,7 @@ public class Robot extends IterativeRobot {
         });
         visionThread.start();
         // END GRIP CAMERA CODE
-                
+*/                
                 /**    
                  ** 	END CAMERA CODE
                  */ 

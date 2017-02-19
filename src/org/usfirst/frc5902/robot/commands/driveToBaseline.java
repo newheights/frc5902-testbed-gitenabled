@@ -23,7 +23,7 @@ public class driveToBaseline extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	int feet = 1;
-    	double dblFactor = 5;
+    	double dblFactor = 2;
     	double dblCommonSpeed = 0.5;
     	double dblLeftSpeed;
     	double dblRightSpeed;
@@ -31,6 +31,8 @@ public class driveToBaseline extends Command {
 
         double distance = (-feet * 12)/pulseToInches;
         while (Robot.leftDriveEncoder.pulseWidthPos >= distance) {
+        	// Robot.driveTrain.driveStraight(.4);
+        	
            	dblAngle = Robot.gyro.gyro.getAngle();
         	dblLeftSpeed = dblCommonSpeed + (dblAngle*dblFactor);
         	dblRightSpeed = dblCommonSpeed - (dblAngle*dblFactor);

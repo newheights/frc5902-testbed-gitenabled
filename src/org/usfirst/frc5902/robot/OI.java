@@ -113,7 +113,7 @@ public class OI {
 
         // Driver Xbox Button Assignments 
         buttonA1 = new JoystickButton(driverXbox, 1);
-        buttonA1.whileHeld(new startShooter(.90));
+        buttonA1.whileHeld(new startShooter(.95));
         
         buttonB2 = new JoystickButton(driverXbox, 2);
         buttonB2.whileHeld(new startShooter(.85));
@@ -128,7 +128,7 @@ public class OI {
         leftBumper5.whileHeld(new moveCamera());
       
         rightBumper6 = new JoystickButton(driverXbox, 6);
-        rightBumper6.toggleWhenPressed(new startIntake(.75));
+        rightBumper6.toggleWhenPressed(new startIntake(.25));
           
         // Logitech Joystick Button Assignments 
 
