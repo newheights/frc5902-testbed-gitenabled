@@ -85,14 +85,7 @@ public class OI {
     public JoystickButton buttonDpadRight15;
 
     
-    
-
-
-    
-
-
-    
-    // Define Buttons for Xbox
+    // Define Buttons for Logitech
 
     public JoystickButton buttonJoy7;
 
@@ -122,23 +115,23 @@ public class OI {
         // button1 = new JoystickButton(joystickName, 1);
         // button1.whileHeld(new commandName());
 
-        button1 = new JoystickButton(driverXbox, 1);
-        button1.whileHeld(new startShooter(.90));
+        buttonA1 = new JoystickButton(driverXbox, 1);
+        buttonA1.whileHeld(new startShooter(.90));
 
-        button6 = new JoystickButton(driverXbox, 6);
-        button6.toggleWhenPressed(new startIntake());
+        rightBumper6 = new JoystickButton(driverXbox, 6);
+        rightBumper6.toggleWhenPressed(new startIntake());
         
-        button5 = new JoystickButton(driverXbox, 5);
-        button5.whileHeld(new moveCamera());
+        leftBumper5 = new JoystickButton(driverXbox, 5);
+        leftBumper5.whileHeld(new moveCamera());
         
-        button2 = new JoystickButton(driverXbox, 2);
-        button2.whileHeld(new startShooter(.85));
+        buttonB2 = new JoystickButton(driverXbox, 2);
+        buttonB2.whileHeld(new startShooter(.85));
         
-        button3 = new JoystickButton(driverXbox, 3);
-        button3.whileHeld(new startShooter(.75));
+        buttonX3 = new JoystickButton(driverXbox, 3);
+        buttonX3.whileHeld(new startShooter(.75));
        
-        button4 = new JoystickButton(driverXbox, 4);
-        button4.whileHeld(new startShooter(.80));
+        buttonY4 = new JoystickButton(driverXbox, 4);
+        buttonY4.whileHeld(new startShooter(.80));
 
         buttonJoy7 = new JoystickButton(logitech, 7);
         buttonJoy7.whenPressed(new resetEncoder());
