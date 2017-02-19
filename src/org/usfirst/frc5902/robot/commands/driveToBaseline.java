@@ -31,12 +31,12 @@ public class driveToBaseline extends Command {
 
         double distance = (-feet * 12)/pulseToInches;
         while (Robot.leftDriveEncoder.pulseWidthPos >= distance) {
-        	// Robot.driveTrain.driveStraight(.4);
-        	
-           	dblAngle = Robot.gyro.gyro.getAngle();
+        	 Robot.driveTrain.driveStraight(.4);
+        	// GYRO Drive Straight Code
+         /*  	dblAngle = Robot.gyro.gyro.getAngle();
         	dblLeftSpeed = dblCommonSpeed + (dblAngle*dblFactor);
         	dblRightSpeed = dblCommonSpeed - (dblAngle*dblFactor);
-        	Robot.driveTrain.arcadeDrive(dblLeftSpeed, dblRightSpeed, dblCommonSpeed);
+        	Robot.driveTrain.arcadeDrive(dblLeftSpeed, dblRightSpeed, dblCommonSpeed);*/
         }
         end();
     }
