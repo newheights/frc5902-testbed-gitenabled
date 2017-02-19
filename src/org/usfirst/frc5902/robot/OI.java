@@ -100,7 +100,7 @@ public class OI {
         SmartDashboard.putData("arcadeDrive", new arcadeDrive());
         SmartDashboard.putData("autoCommandExample", new autoCommandExample());
         SmartDashboard.putData("autoBaseline", new autoBaseline());
-        SmartDashboard.putData("startIntake", new startIntake());
+        SmartDashboard.putData("startIntake", new startIntake(.5));
         SmartDashboard.putData("startShooter", new startShooter(.75));
         SmartDashboard.putData("stopShooter", new stopShooter());
 
@@ -128,7 +128,7 @@ public class OI {
         leftBumper5.whileHeld(new moveCamera());
       
         rightBumper6 = new JoystickButton(driverXbox, 6);
-        rightBumper6.toggleWhenPressed(new startIntake());
+        rightBumper6.toggleWhenPressed(new startIntake(.75));
           
         // Logitech Joystick Button Assignments 
 
