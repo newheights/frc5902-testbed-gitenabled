@@ -84,5 +84,10 @@ public class driveTrain extends Subsystem {
     	robotDrive.tankDrive(speed, speed);
     }
     
+    //Alows us to compensate for our drift. If we call drivestraight with two arguments then it will call this one left speed and right speed
+    public void driveStraightAdjust(double speedL, double speedR) {
+		robotDrive.tankDrive(speedL, speedR);
+	}
+    
 }
 

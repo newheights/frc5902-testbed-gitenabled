@@ -36,7 +36,7 @@ public class intake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void intakeRun(double speed) {
-    	intakeMotor.set(-speed);
+    	intakeMotor.set(speed);
     }
   
     public void stop() {

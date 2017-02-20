@@ -8,9 +8,10 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class driveToBaseline extends Command {
-	public final double pulseToInches = (10*Math.PI)/4096.0;
+	public final double pulseToInches = (6*Math.PI)/4096.0;
 
     public driveToBaseline() {
+    	requires(Robot.driveTrain);
     	requires(Robot.leftDriveEncoder);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,34 +23,38 @@ public class driveToBaseline extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	int feet = 1;
-    	double dblFactor = 2;
-    	double dblCommonSpeed = 0.5;
-    	double dblLeftSpeed;
-    	double dblRightSpeed;
+    	Robot.driveTrain.driveStraightAdjust(.522, .5);
+    	setTimeout(5.5);
+
+/*    	int feet = 1;
+    	double dblFactor = .5;
+    	double dblCommonSpeed = 0.4;
+    	double dblLeftSpeed = dblCommonSpeed;
+    	double dblRightSpeed = dblCommonSpeed;
     	double dblAngle;
 
-        double distance = (-feet * 12)/pulseToInches;
-        while (Robot.leftDriveEncoder.pulseWidthPos >= distance) {
-        	 Robot.driveTrain.driveStraight(.4);
+        double distance = (feet * 12)/pulseToInches;
+        while (Robot.leftDriveEncoder.pulseWidthPos <= distance) {
+        	Robot.driveTrain.driveStraightAdjust(.5333,.5);
+
         	// GYRO Drive Straight Code
-         /*  	dblAngle = Robot.gyro.gyro.getAngle();
+           	dblAngle = Robot.gyro.gyro.getAngle();
         	dblLeftSpeed = dblCommonSpeed + (dblAngle*dblFactor);
         	dblRightSpeed = dblCommonSpeed - (dblAngle*dblFactor);
-        	Robot.driveTrain.arcadeDrive(dblLeftSpeed, dblRightSpeed, dblCommonSpeed);*/
-        }
-        end();
+        	Robot.driveTrain.driveStraightAdjust(dblLeftSpeed, dblRightSpeed);
+        	
+        	
+        }*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.driveTrain.driveStraight(0);
-
     }
 
     // Called when another command which requires one or more of the same
