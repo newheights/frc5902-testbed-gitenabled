@@ -26,7 +26,7 @@ public class driveToBaseline extends Command {
     protected void execute() {
  
     	Robot.driveTrain.driveStraightAdjust(.522, .5);
-    	setTimeout(5.5*Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
+    	setTimeout(97/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
     	
     	//Gyro Code UNTESTED Harrison
     	/*   	double feet = 7.93;
@@ -41,9 +41,9 @@ public class driveToBaseline extends Command {
            	dblAngle = Robot.gyro.gyro.getAngle();
         	dblLeftSpeed = dblCommonSpeed + (dblAngle*dblFactor);
         	dblRightSpeed = dblCommonSpeed - (dblAngle*dblFactor);
-        	Robot.driveTrain.arcadeDrive(dblLeftSpeed, dblRightSpeed, dblCommonSpeed);*/
+        	Robot.driveTrain.arcadeDrive(dblLeftSpeed, dblRightSpeed, dblCommonSpeed);
         }
-        end();
+        end(); */
     }
 
     // Make this return true when this Command no longer needs to run execute()

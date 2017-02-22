@@ -22,7 +22,7 @@ public class driveGearPegLeft extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveTrain.driveStraightAdjust(-.522, -.5); // Need to ADJUST
-    	setTimeout(5.5*Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
+    	setTimeout(5.5/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
     	
     }
 

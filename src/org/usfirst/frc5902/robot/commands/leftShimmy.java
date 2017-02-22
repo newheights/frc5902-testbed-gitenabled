@@ -21,7 +21,7 @@ public class leftShimmy extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveStraightAdjust(0, .75);
+    	Robot.driveTrain.driveStraightAdjust(-.5, .5);
     	setTimeout(.5);
     }
 
