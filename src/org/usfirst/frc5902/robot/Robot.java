@@ -20,6 +20,7 @@ import org.usfirst.frc5902.robot.commands.*;
 import org.usfirst.frc5902.robot.commands.autoBaseline;
 import org.usfirst.frc5902.robot.commands.autoCommandExample;
 import org.usfirst.frc5902.robot.commands.driveToBaseline;
+import org.usfirst.frc5902.robot.subsystems.agitator;
 import org.usfirst.frc5902.robot.subsystems.cameraControl;
 import org.usfirst.frc5902.robot.subsystems.driveTrain;
 import org.usfirst.frc5902.robot.subsystems.encoderDev;
@@ -67,6 +68,7 @@ public class Robot extends IterativeRobot {
     public static double speed;
     public final double pulseToInches = (10*Math.PI)/4096.0;
     
+    //agitator
     // Make Gyro
     public static gyro gyro;
     // GRIP Defines
@@ -94,7 +96,7 @@ public class Robot extends IterativeRobot {
         intake = new intake();
         shooter = new shooter();
         cameraControl = new cameraControl();
-        
+        agitator = new agitator();
         //Make Gyro & Reset to 0 & Calibrate
         
         gyro = new gyro();
@@ -136,9 +138,12 @@ public class Robot extends IterativeRobot {
         
         //Autonomous Chooser Code
         autoChooser = new SendableChooser();
-        autoChooser.addDefault("Autonomous Example", new autoCommandExample());
-        autoChooser.addObject("Auto Drive to Baseline", new driveToBaseline());
-        
+        autoChooser.addDefault("Autonomous Do Nothing", new autoCommandExample());
+        autoChooser.addObject("Auto Drive to Baseline", new autoBaseline());
+        autoChooser.addObject("Auto Gear Middle Starting", new autoGearStraight());
+        autoChooser.addObject("Auto Gear Left Starting", new autoGearLeft());
+        autoChooser.addObject("Auto Gear Right Starting", new autoGearRight());
+
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
 
     }

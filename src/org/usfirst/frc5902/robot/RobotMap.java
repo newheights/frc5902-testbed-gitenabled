@@ -42,6 +42,9 @@ public class RobotMap {
 	    
 	//Shooter
 	public static CANTalon shooter;
+	
+	//agitator
+	public static CANTalon agitator;
 	// Robot Drive
 	public static RobotDrive driveTrainrobotDrive;
     
@@ -74,6 +77,10 @@ public class RobotMap {
 	        shooter = new CANTalon(5);
 	        LiveWindow.addActuator("Shooter", "shooter", shooter);
 	        
+	        //shooter motors
+	        agitator = new CANTalon(6);
+	        LiveWindow.addActuator("Agitator", "agitator", agitator);
+
 	        
 	        //Create Drive Train    
 	        driveTrainrobotDrive = new RobotDrive(driveTrainleftDriveLead, driveTrainrightDriveLead);
