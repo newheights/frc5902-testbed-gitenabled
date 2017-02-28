@@ -9,11 +9,10 @@ public class shimmyShake extends CommandGroup {
 
     public shimmyShake() {
     	
-    	addSequential(new leftShimmy());
-    	addSequential(new waitASecond());
-    	addSequential(new rightShimmy());
-    	addSequential(new waitASecond());
-
+    	addSequential(new backShimmy());
+    	addSequential(new waitShimmy());
+    	addSequential(new frontShimmy());
+    	addSequential(new waitShimmy());
     	addSequential(new leftShimmy());
     	addSequential(new waitASecond());
     	addSequential(new rightShimmy());    	
