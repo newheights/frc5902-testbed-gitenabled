@@ -28,7 +28,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class driveTrain extends Subsystem {
 	
-	public final double inchesToSecondsModifier = 1;
+	public final double inchesToSecondsModifier = 25;
 	
 	// WM-  *START* Add in Motor Controllers for the 4 motor controller system.
 

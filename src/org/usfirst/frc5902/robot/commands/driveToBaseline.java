@@ -25,10 +25,11 @@ public class driveToBaseline extends Command {
     
     protected void execute() {
  
-    	Robot.driveTrain.driveStraightAdjust(.522, .5);
+    	// Below Code works. WNM Feb 21
+    	Robot.driveTrain.driveStraightAdjust(.522, .5); // Adjustment to drive straighter
     	setTimeout(97/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
     	
-    	//Gyro Code UNTESTED Harrison
+    	//Gyro Code UNTESTED Feb 20 Harrison G
     	/*   	double feet = 7.93;
     	double dblFactor = 1;
     	double dblCommonSpeed = 0.5;

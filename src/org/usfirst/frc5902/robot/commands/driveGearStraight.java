@@ -21,7 +21,9 @@ public class driveGearStraight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveStraightAdjust(-.55, -.5);
+    	
+    	//Code below works - WNM Feb 21
+    	Robot.driveTrain.driveStraightAdjust(-.55, -.5); // Adjust for our Drift.
     	setTimeout(103/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
     	
     }
