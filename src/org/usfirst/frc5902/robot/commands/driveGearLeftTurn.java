@@ -22,7 +22,7 @@ public class driveGearLeftTurn extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveTrain.driveStraightAdjust(-.52, .5); // Need to ADJUST
-        setTimeout(19.55/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
+        setTimeout(14.55/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
     	
     }
 

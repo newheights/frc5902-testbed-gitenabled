@@ -106,9 +106,12 @@ public class Robot extends IterativeRobot {
         /**    
          ** 	CAMERA CODE
          */        
-        
+        UsbCamera shooterCamera = CameraServer.getInstance().startAutomaticCapture();
+        UsbCamera intakeCamera = CameraServer.getInstance().startAutomaticCapture();
+
+
+
 		/*// GRIP CAMERA CODE
-        UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
         camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
         visionThread = new VisionThread(camera, new trackerPipeline(), pipeline -> {
             if (!pipeline.filterContoursOutput().isEmpty()) {
@@ -144,7 +147,6 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("Auto Gear Middle Starting", new autoGearStraight());
         autoChooser.addObject("Auto Gear Left Starting", new autoGearLeft());
         autoChooser.addObject("Auto Gear Right Starting", new autoGearRight());
-
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
 
     }
@@ -193,12 +195,13 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Xbox X axis", oi.driverXbox.getX());
-        SmartDashboard.putNumber("Xbox Y axis", oi.driverXbox.getY());
+        // SmartDashboard.putNumber("Xbox Y axis", oi.driverXbox.getY());
         SmartDashboard.putNumber("Gyro Reading", gyro.getAngle());
         SmartDashboard.putNumber("Throttle Reading", oi.logitech.getThrottle());
-        SmartDashboard.putNumber("Left Drive Encoder Reading", leftDriveEncoder.pulseWidthPos);
-        SmartDashboard.putNumber("Left Drive Encoder Velocity", leftDriveEncoder.pulseWidthVelocity);
+      //  SmartDashboard.putNumber("Left Drive Encoder Reading", leftDriveEncoder.pulseWidthPos);
+        // SmartDashboard.putNumber("Left Drive Encoder Velocity", leftDriveEncoder.pulseWidthVelocity);
         SmartDashboard.putNumber("Left Drive Distance Inches", ((leftDriveEncoder.pulseWidthPos * pulseToInches)*100)/(int)100);
+        SmartDashboard.putNumber("Pan Servo Position Inches", cameraControl.panServo.getPosition());
         leftDriveEncoder.run();
         gyro.run(gyro);
     }

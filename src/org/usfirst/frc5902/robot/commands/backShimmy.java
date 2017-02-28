@@ -8,11 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class backShimmy extends Command {
-
-    public backShimmy() {
+public double time;
+    public backShimmy(double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
+    	this.time = time;
     }
 
     // Called just before this Command runs the first time
@@ -21,8 +22,8 @@ public class backShimmy extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveStraightAdjust(-.5, -.5);
-    	setTimeout(.5);
+    	Robot.driveTrain.driveStraightAdjust(-.75, -.75);
+    	setTimeout(this.time);
     }
 
     // Make this return true when this Command no longer needs to run execute()
