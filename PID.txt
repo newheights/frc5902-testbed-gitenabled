@@ -1,0 +1,22 @@
+PID and how to tune an auto:
+
+CALCULATING DISTANCE:
+
+Your distance measurement is set at motor configuration in driveTrain.java
+In order to calculate this measure take your target (in terms of inches) and then do the following:
+4096 * (target / (3.14*6))
+4096 is a magic number. Don't ever touch it.
+
+----> NOTE <----
+This assumes that you have a 6" wheel, and the encoder is mounted to the wheel.
+If your encoder is mounted before the gearbox then the following operation should be used:
+
+w * (4096 * (target / (3.14*6)))
+
+Where w is the number of times that your motor will spin for your wheel to spin once.
+
+TUNING THE PID ITSELF:
+
+All PID tuning is done in driveTrain.java
+There is a comment there that describes this process in great detail.
+Please see that comment.
