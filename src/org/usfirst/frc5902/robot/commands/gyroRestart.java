@@ -22,7 +22,7 @@ public class gyroRestart extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	angle = Robot.gyro.angle;
+    	angle = Robot.gyro.getAngle();
     }
 
     // Make this return true when this Command no longer needs to run execute()

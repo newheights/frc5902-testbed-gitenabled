@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Test Bed 2
 
 // RobotBuilder Version: 2.0
@@ -138,4 +137,7 @@ public class driveTrain extends Subsystem {
     	robotDrive.tankDrive(speed, speed);
     }
     
+    public void driveStraightAdjust(double speedL, double speedR) {
+		robotDrive.tankDrive(speedL, speedR);
+	}
 }
