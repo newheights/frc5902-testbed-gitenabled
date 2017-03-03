@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Test Bed 2
 
 // RobotBuilder Version: 2.0
@@ -138,4 +139,3 @@ public class driveTrain extends Subsystem {
     }
     
 }
-

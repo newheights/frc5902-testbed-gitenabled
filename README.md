@@ -65,14 +65,32 @@ On the smart dashboard we have the following
 
 ## 2017 Driver Controls
 
+
 ### Driver Logitech Joystick - Operator Interface Assignments
 
-| Button  | Command |
-| ------------- | ------------- |
-| Joystick  | Regular ArcadeDrive  |
+| Button  | Button # | Command |
+| ------------- | ------------- | ------------- |
+| Joystick  | NA | Regular ArcadeDrive  |
+| Button 7  | 7 | Reset Left Drive Encoder to 0  |
+
 
 ### Driver Xbox - Operator Interface Assignments
 
-| Button  | Command |
-| ------------- | ------------- |
-| Main joystick | Camera Control (Pan/Tilt) |
+| Button  | Button # | Command |
+| ------------- | ------------- | ------------- |
+| Left analog stick | NA | Camera Control (Pan/Tilt) - When Move Camera Button Held |
+| A Button | 1 | Held - Shooter .90 |
+| B Button | 2 | Held - Shooter .85 |
+| X Button | 3 | Held - Shooter .75 |
+| Y Button | 4 | Held - Shooter .80 |
+| Left Bumper | 5 | Held - Move Camera |
+| Right Bumper | 6 | Toggle - Intake System |
+| Left Stick Button | 7 | Assignment |
+| Right Stick Button | 8 | Assignment |
+| START Button | 9 | Assignment |
+| BACK Button | 10 | Assignment |
+| HOME Button | 11 | Assignment |
+| D-Pad Up | 12 | Assignment |
+| D-Pad Down | 13 | Assignment |
+| D-Pad Left | 14 | Assignment |
+| D-Pad Right | 15 | Assignment |

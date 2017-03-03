@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class encoderDev extends Subsystem {
+
+public class encoderDev extends Subsystem implements edu.wpi.first.wpilibj.CANSpeedController.ControlMode{
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -18,18 +19,51 @@ public class encoderDev extends Subsystem {
 	public int pulseWidthRiseToFallUs;
 	public int pulseWidthRiseToRiseUs;
 	public int pulseWidthVelocity;
+	public int wireClippersEncoderValue;
+	private int internalEncoderValue;
+	public FeedbackDeviceStatus sensorstatus;
+	public boolean sensorPluggedIn;
+	public CANTalon leftDriveEncoder;
     public encoderDev(CANTalon _tal) {
-    	pulseWidthPos = _tal.getPulseWidthPosition();
-    	pulseWidthRiseToFallUs = _tal.getPulseWidthRiseToFallUs();
-    	pulseWidthRiseToRiseUs = _tal.getPulseWidthRiseToRiseUs();
-    	pulseWidthVelocity = _tal.getPulseWidthVelocity();
-    	FeedbackDeviceStatus sensorstatus = _tal.isSensorPresent(FeedbackDevice.CtreMagEncoder_Absolute);
-    	boolean sensorPluggedIn = (FeedbackDeviceStatus.FeedbackStatusPresent == sensorstatus);
+    	leftDriveEncoder=_tal;
 	}
 	@Override
 	protected void initDefaultCommand() {
+		internalEncoderValue = leftDriveEncoder.getPulseWidthPosition();
+	}
+	public void run() {
+		this.pulseWidthPos = internalEncoderValue - leftDriveEncoder.getPulseWidthPosition();
+    	this.pulseWidthRiseToFallUs = leftDriveEncoder.getPulseWidthRiseToFallUs();
+    	this.pulseWidthRiseToRiseUs = leftDriveEncoder.getPulseWidthRiseToRiseUs();
+    	this.pulseWidthVelocity = leftDriveEncoder.getPulseWidthVelocity();
+    	this.sensorstatus = leftDriveEncoder.isSensorPresent(FeedbackDevice.CtreMagEncoder_Absolute);
+    	this.sensorPluggedIn = (FeedbackDeviceStatus.FeedbackStatusPresent == sensorstatus);
+    	
+	}
+	@Override
+	public String name() {
 		// TODO Auto-generated method stub
-		
+		return null;
+	}
+	@Override
+	public boolean isPID() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public int getValue() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public int reset() {
+		// TODO Auto-generated method stub
+		internalEncoderValue = leftDriveEncoder.getPulseWidthPosition();
+		return 0;
+	}
+	public void zero() {
+		// TODO Auto-generated method stub
+		internalEncoderValue = 0;
 	}
 }
 
