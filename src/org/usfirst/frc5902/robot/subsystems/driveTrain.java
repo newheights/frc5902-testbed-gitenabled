@@ -58,6 +58,10 @@ public class driveTrain extends Subsystem {
    		leftDriveFollow.changeControlMode(TalonControlMode.Follower);
    		leftDriveFollow.set(leftDriveLead.getDeviceID());
    		
+   		leftDriveLead.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+   		rightDriveLead.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+   		leftDriveLead.configEncoderCodesPerRev(4096);
+   		rightDriveLead.configEncoderCodesPerRev(4096);
    		
    	}
    	
