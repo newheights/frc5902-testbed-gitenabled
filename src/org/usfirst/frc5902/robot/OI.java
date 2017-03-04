@@ -1,3 +1,4 @@
+
 //Test Bed 2
 
 //// RobotBuilder Version: 2.0
@@ -13,15 +14,17 @@
 
 package org.usfirst.frc5902.robot;
 
-import org.usfirst.frc5902.robot.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc5902.robot.commands.autoBaseLine;
+import org.usfirst.frc5902.robot.commands.autoNothing;
+import org.usfirst.frc5902.robot.commands.moveCamera;
+import org.usfirst.frc5902.robot.commands.shimmyShake;
+import org.usfirst.frc5902.robot.commands.startAgitator;
+import org.usfirst.frc5902.robot.commands.startIntake;
+import org.usfirst.frc5902.robot.commands.startShooter;
+
 import edu.wpi.first.wpilibj.Joystick;
-import org.usfirst.frc5902.robot.subsystems.*;
-
-
-
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 
@@ -98,13 +101,6 @@ public class OI {
         logitech = new Joystick(0);
         
         // SmartDashboard Buttons
-        SmartDashboard.putData("autoBaseline", new autoBaseline());
-        SmartDashboard.putData("autoGearStraight", new autoGearStraight());
-        SmartDashboard.putData("autoGearLeft", new autoGearLeft());
-        SmartDashboard.putData("autoGearRight", new autoGearRight());
-        SmartDashboard.putData("driveGearStraight", new driveGearStraight());
-        SmartDashboard.putData("driveGearRightTurn", new driveGearRightTurn());
-        SmartDashboard.putData("driveGearLeftTurn", new driveGearLeftTurn());
         SmartDashboard.putData("SHIMMY", new shimmyShake());
 
         SmartDashboard.putData("startIntake", new startIntake(.5));

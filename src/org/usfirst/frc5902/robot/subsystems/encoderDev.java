@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
+
 public class encoderDev extends Subsystem implements edu.wpi.first.wpilibj.CANSpeedController.ControlMode{
 
     // Put methods for controlling this subsystem

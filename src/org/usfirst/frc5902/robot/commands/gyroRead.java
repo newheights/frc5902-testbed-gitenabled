@@ -9,8 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 @SuppressWarnings("unused")
 public class gyroRead extends Command {
-
+	public static double angle;
     public gyroRead() {
+    	requires(Robot.gyro);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	
@@ -18,10 +19,12 @@ public class gyroRead extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	angle = Robot.gyro.getAngle();
     }
 
     // Make this return true when this Command no longer needs to run execute()

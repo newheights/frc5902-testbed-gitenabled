@@ -7,38 +7,35 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class driveGearRightTurn extends Command {
-
-    public driveGearRightTurn() {
+public class gyroRestart extends Command {
+	public static double angle;
+    public gyroRestart() {
+    	requires(Robot.gyro);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	angle = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveStraightAdjust(.52, -.5); // Need to ADJUST
-        setTimeout(14.55/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
-    	
+    	angle = Robot.gyro.getAngle();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.driveStraight(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    end();
     }
 }

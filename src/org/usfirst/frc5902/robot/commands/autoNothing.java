@@ -5,10 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class autoGearStraight extends CommandGroup {
+public class autoNothing extends CommandGroup {
 
-    public autoGearStraight() {
-    	addSequential(new driveGearStraight());
+    public autoNothing() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

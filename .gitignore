@@ -1,0 +1,6 @@
+bin/
+build/
+*.classpath
+*.project
+sysProps.xml
+*.DS_Store
