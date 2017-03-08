@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * This doesn't implement a gyro. A gyro is really unneccessary for this purpose.
  * 
  */
-public class autoBaseLine extends CommandGroup {
+public class autoBaseline extends CommandGroup {
 
-    public autoBaseLine() {
+    public autoBaseline() {
         addSequential(new driveForward());
     }
 }

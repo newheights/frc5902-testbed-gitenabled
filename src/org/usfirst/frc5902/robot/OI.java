@@ -14,7 +14,7 @@
 
 package org.usfirst.frc5902.robot;
 
-import org.usfirst.frc5902.robot.commands.autoBaseLine;
+import org.usfirst.frc5902.robot.commands.autoBaseline;
 import org.usfirst.frc5902.robot.commands.autoNothing;
 import org.usfirst.frc5902.robot.commands.moveCamera;
 import org.usfirst.frc5902.robot.commands.shimmyShake;

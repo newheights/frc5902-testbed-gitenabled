@@ -1,5 +1,7 @@
 package org.usfirst.frc5902.robot.subsystems;
 
+import org.usfirst.frc5902.robot.Robot;
+
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.FeedbackDeviceStatus;
@@ -53,7 +55,7 @@ public class encoderDev extends Subsystem implements edu.wpi.first.wpilibj.CANSp
 	@Override
 	public int getValue() {
 		// TODO Auto-generated method stub
-		return 0;
+		return Robot.leftDriveEncoder.getValue();
 	}
 	
 	public int reset() {

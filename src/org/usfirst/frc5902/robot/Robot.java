@@ -15,7 +15,11 @@ package org.usfirst.frc5902.robot;
 
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc5902.robot.commands.autoBaseLine;
+import org.usfirst.frc5902.robot.commands.autoBaseline;
+import org.usfirst.frc5902.robot.commands.autoBaselineGyro;
+import org.usfirst.frc5902.robot.commands.autoGearLeft;
+import org.usfirst.frc5902.robot.commands.autoGearRight;
+import org.usfirst.frc5902.robot.commands.autoGearStraight;
 import org.usfirst.frc5902.robot.commands.autoNothing;
 import org.usfirst.frc5902.robot.subsystems.agitator;
 import org.usfirst.frc5902.robot.subsystems.cameraControl;
@@ -62,6 +66,7 @@ public class Robot extends IterativeRobot {
     public static shooter shooter;
     public static cameraControl cameraControl;
     public static encoderDev leftDriveEncoder;
+    public static encoderDev rightDriveEncoder;
     public static agitator agitator;
     public static double speed;
     public final double pulseToInches = (6*Math.PI)/4096.0;
@@ -107,26 +112,30 @@ public class Robot extends IterativeRobot {
 		// Encoder Code
         gyro = new gyro();
         leftDriveEncoder = new encoderDev(RobotMap.driveTrainleftDriveLead);
+        rightDriveEncoder = new encoderDev(RobotMap.driveTrainrightDriveLead);
+
         /**    
          ** 	CAMERA CODE
          */        
         
-		// GRIP CAMERA CODE
-		//New
-		//Source Destination may not be accurate - Harrison
-		//camera = CameraServer.getInstance().startAutomaticCapture();
-		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-        camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
-        visionThread = new VisionThread(camera, new trackerPipeline(), pipeline -> {
-            if (!pipeline.filterContoursOutput().isEmpty()) {
-                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-                synchronized (imgLock) {
-                    centerX = r.x + (r.width / 2);
-                }
-            }
-        });
-                visionThread.start();
-        // END GRIP CAMERA CODE
+        UsbCamera shooterCamera = CameraServer.getInstance().startAutomaticCapture();
+        UsbCamera intakeCamera = CameraServer.getInstance().startAutomaticCapture();
+        
+//		// GRIP CAMERA CODE
+//		//New
+//		//Source Destination may not be accurate - Harrison
+//		//camera = CameraServer.getInstance().startAutomaticCapture();
+//        camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
+//        visionThread = new VisionThread(camera, new trackerPipeline(), pipeline -> {
+//            if (!pipeline.filterContoursOutput().isEmpty()) {
+//                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+//                synchronized (imgLock) {
+//                    centerX = r.x + (r.width / 2);
+//                }
+//            }
+//        });
+//                visionThread.start();
+//        // END GRIP CAMERA CODE
                 
                 /**    
                  ** 	END CAMERA CODE
@@ -147,8 +156,13 @@ public class Robot extends IterativeRobot {
         
         //Autonomous Chooser Code
         autoChooser = new SendableChooser();
-        autoChooser.addDefault("Sprint for Baseline", new autoBaseLine());
+        autoChooser.addDefault("Sprint for Baseline", new autoBaseline());
+        autoChooser.addDefault("Gyro for Baseline UNTESTED", new autoBaselineGyro());
         autoChooser.addObject("Auto Do Nothing", new autoNothing());
+        autoChooser.addObject("Auto Gear Middle Starting", new autoGearStraight());
+        autoChooser.addObject("Auto Gear Left Starting", new autoGearLeft());
+        autoChooser.addObject("Auto Gear Right Starting", new autoGearRight());
+        SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
 
@@ -173,13 +187,19 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         autonomousCommand = (CommandGroup) autoChooser.getSelected();
         autonomousCommand.start();
+        gyro.gyro.reset();
+       // leftDriveEncoder.leftDriveEncoder.setEncPosition(0);
+        leftDriveEncoder.reset();
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
+        leftDriveEncoder.run();
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Gyro Reading", gyro.getAngle());
+        SmartDashboard.putNumber("Left Drive Distance Inches", ((leftDriveEncoder.pulseWidthPos * pulseToInches)*100)/(int)100);
     }
     /**
      *   This makes sure that the autonomous stops running when
@@ -189,12 +209,17 @@ public class Robot extends IterativeRobot {
      */
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
+        gyro.gyro.reset();
+        //leftDriveEncoder.leftDriveEncoder.setEncPosition(0);
+        leftDriveEncoder.reset();
+
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+    	
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Xbox X axis", oi.driverXbox.getX());
         // SmartDashboard.putNumber("Xbox Y axis", oi.driverXbox.getY());
@@ -204,7 +229,10 @@ public class Robot extends IterativeRobot {
         // SmartDashboard.putNumber("Left Drive Encoder Velocity", leftDriveEncoder.pulseWidthVelocity);
         SmartDashboard.putNumber("Left Drive Distance Inches", ((leftDriveEncoder.pulseWidthPos * pulseToInches)*100)/(int)100);
         SmartDashboard.putNumber("Pan Servo Position Inches", cameraControl.panServo.getPosition());
+        SmartDashboard.putNumber("Xbox X axis", oi.driverXbox.getX());
+        
         leftDriveEncoder.run();
+        
         gyro.run(gyro);
     }
 

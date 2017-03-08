@@ -13,6 +13,7 @@
 
 package org.usfirst.frc5902.robot.subsystems;
 
+import org.usfirst.frc5902.robot.Robot;
 import org.usfirst.frc5902.robot.RobotMap;
 import org.usfirst.frc5902.robot.commands.*;
 import com.ctre.CANTalon;
@@ -27,7 +28,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class driveTrain extends Subsystem {
-	
+	public final double inchesToSecondsModifier = 25;
+
 	// WM-  *START* Add in Motor Controllers for the 4 motor controller system.
 
    	public final CANTalon rightDriveFollow = RobotMap.driveTrainrightDriveFollow;
@@ -140,4 +142,12 @@ public class driveTrain extends Subsystem {
     public void driveStraightAdjust(double speedL, double speedR) {
 		robotDrive.tankDrive(speedL, speedR);
 	}
+    
+    public void gyroDriveStraight (double speed) {
+    	double angle = Robot.gyro.getAngle();
+    	double angleCorrectionFactor = .01;
+    	robotDrive.drive(speed, -angle*angleCorrectionFactor);
+    }
+    
+    
 }

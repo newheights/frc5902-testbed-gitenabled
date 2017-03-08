@@ -6,26 +6,6 @@ https://www.youtube.com/playlist?list=PLYA9eZLlgz7t9Oleid2wtlgnvhGObeKzp
 
 #2017 Notes
 
-Controls:
-
-- A button (button 1) - Hold to enable camera control
-- B button (button 2) - Press to restart camera feed (?)
-- X button (button 3) -
-- Y button (button 4) -
-- Left bumper (button 5) - Hold to activate shooter
-- Right bumper (button 6) - Press to intake
-- Left stick button (button 7) -
-- Right stick button (button 8) -
-- START button (button 9) -
-- BACK button (button 10) -
-- HOME button (button 11) -
-- D-pad up (button 12) -
-- D-pad down (button 13) -
-- D-pad left (button 14) -
-- D-pad right (button 15) -
-
-
-
 # Robot Subsystems
 
 ## DriveTrain - Robot Driving
