@@ -51,7 +51,7 @@ On the smart dashboard we have the following
 | Button  | Button # | Command |
 | ------------- | ------------- | ------------- |
 | Joystick  | NA | Regular ArcadeDrive  |
-| Button 7  | 7 | Reset Left Drive Encoder to 0  |
+| Button 5  | 5 | Held - Shimmy  |
 
 
 ### Driver Xbox - Operator Interface Assignments
@@ -59,10 +59,10 @@ On the smart dashboard we have the following
 | Button  | Button # | Command |
 | ------------- | ------------- | ------------- |
 | Left analog stick | NA | Camera Control (Pan/Tilt) - When Move Camera Button Held |
-| A Button | 1 | Held - Shooter .90 |
-| B Button | 2 | Held - Shooter .85 |
-| X Button | 3 | Held - Shooter .75 |
-| Y Button | 4 | Held - Shooter .80 |
+| A Button | 1 | Toggle - Agitator Forward |
+| B Button | 2 | Held - Shooter 1 |
+| X Button | 3 | Toggle Agitator Reverse |
+| Y Button | 4 | Held - Shooter .98 |
 | Left Bumper | 5 | Held - Move Camera |
 | Right Bumper | 6 | Toggle - Intake System |
 | Left Stick Button | 7 | Assignment |
