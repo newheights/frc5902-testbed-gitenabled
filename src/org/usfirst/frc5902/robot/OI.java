@@ -124,7 +124,7 @@ public class OI {
         buttonX3.toggleWhenPressed(new startAgitator(-.3));
        
         buttonY4 = new JoystickButton(driverXbox, 4);
-        buttonY4.whileHeld(new startShooter(.98));
+        buttonY4.whileHeld(new startShooter(.75));
 
         leftBumper5 = new JoystickButton(driverXbox, 5);
         leftBumper5.whileHeld(new moveCamera());

@@ -23,7 +23,7 @@ public class driveGearStraight extends Command {
     protected void execute() {
     	
     	//Code below works - WNM Feb 21
-    	Robot.driveTrain.driveStraightAdjust(-.52, -.52); // Adjust for our Drift.
+    	Robot.driveTrain.driveStraightAdjust(-.52, -.525); // Adjust for our Drift.
     	setTimeout(103/Robot.driveTrain.inchesToSecondsModifier); // Format inches needed to go #*inchesToSecondsModifier
     	
     }

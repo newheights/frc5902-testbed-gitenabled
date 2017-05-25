@@ -14,6 +14,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class autoBaselineGyro extends CommandGroup {
 
     public autoBaselineGyro() {
-        addSequential(new driveForwardIntakeWithGyro());
+        addSequential(new driveForwardGearWithGyro());
     }
 }

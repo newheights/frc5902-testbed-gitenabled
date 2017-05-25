@@ -19,6 +19,7 @@ import org.usfirst.frc5902.robot.commands.*;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -60,55 +61,55 @@ public class driveTrain extends Subsystem {
    		leftDriveFollow.changeControlMode(TalonControlMode.Follower);
    		leftDriveFollow.set(leftDriveLead.getDeviceID());
    		
-   		/**
-   		 * The following code and comments were written by Brennan Macaig from FRC-1721
-   		 * Used with permission. Please leave this attribution comment.
-   		 * 
-   		 * Written on 3/3/2017
-   		 */
-   		leftDriveLead.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-   		rightDriveLead.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-   		leftDriveLead.configEncoderCodesPerRev(4096);
-   		rightDriveLead.configEncoderCodesPerRev(4096);
-   		
-   		/**
-   		 * To tune these values:
-   		 * 1. Tape out 15 feet on the floor
-   		 * 2. Get ready to turn on auto
-   		 * 3. Get the heck out of the way
-   		 * 4. Let 'er rip.
-   		 * ---> If a side is spinning in reverse, reverse the sensor (uncomment the line below)
-   		 * 5. Crank up the P term until the robot starts oscilating around the tape line.
-   		 * 6. Crank up the D term until that stops happening
-   		 * 7. Done!
-   		 * 
-   		 * ---------
-   		 * NEVER change the I term
-   		 * NEVER change izone
-   		 * NEVER change closeloopramprate
-   		 * NEVER change the F term
-   		 * NEVER change the profile
-   		 */
-   		double p = .1,
-   			   i = 0,
-   			   d = .5,
-   			   f = 0,
-   			   closeloopramprate = 12;
-   		int izone = 0,
-   			profile = 0;
-   		leftDriveLead.setPID(p, i, d, f, izone, closeloopramprate, profile);
-   		rightDriveLead.setPID(p, i, d, f, izone, closeloopramprate, profile);
-   		
-//   		leftDriveLead.reverseSensor(true);
-//   		rightDriveLead.reverseSensor(true);
-   		
-   		/**
-   		 * This allows for 10 inches of slop. Should be enough considering we're well over the baseline.
-   		 */
-   		leftDriveLead.setAllowableClosedLoopErr(2500);
-   		rightDriveLead.setAllowableClosedLoopErr(2500);
-   		
-   		/** <-----------> END THIRD-PARTY CODE <--------------> */
+//   		/**
+//   		 * The following code and comments were written by Brennan Macaig from FRC-1721
+//   		 * Used with permission. Please leave this attribution comment.
+//   		 * 
+//   		 * Written on 3/3/2017
+//   		 */
+//   		leftDriveLead.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+//   		rightDriveLead.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+//   		leftDriveLead.configEncoderCodesPerRev(4096);
+//   		rightDriveLead.configEncoderCodesPerRev(4096);
+//   		
+//   		/**
+//   		 * To tune these values:
+//   		 * 1. Tape out 15 feet on the floor
+//   		 * 2. Get ready to turn on auto
+//   		 * 3. Get the heck out of the way
+//   		 * 4. Let 'er rip.
+//   		 * ---> If a side is spinning in reverse, reverse the sensor (uncomment the line below)
+//   		 * 5. Crank up the P term until the robot starts oscilating around the tape line.
+//   		 * 6. Crank up the D term until that stops happening
+//   		 * 7. Done!
+//   		 * 
+//   		 * ---------
+//   		 * NEVER change the I term
+//   		 * NEVER change izone
+//   		 * NEVER change closeloopramprate
+//   		 * NEVER change the F term
+//   		 * NEVER change the profile
+//   		 */
+//   		double p = .1,
+//   			   i = 0,
+//   			   d = .5,
+//   			   f = 0,
+//   			   closeloopramprate = 12;
+//   		int izone = 0,
+//   			profile = 0;
+//   		leftDriveLead.setPID(p, i, d, f, izone, closeloopramprate, profile);
+//   		rightDriveLead.setPID(p, i, d, f, izone, closeloopramprate, profile);
+//   		
+////   		leftDriveLead.reverseSensor(true);
+////   		rightDriveLead.reverseSensor(true);
+//   		
+//   		/**
+//   		 * This allows for 10 inches of slop. Should be enough considering we're well over the baseline.
+//   		 */
+//   		leftDriveLead.setAllowableClosedLoopErr(2500);
+//   		rightDriveLead.setAllowableClosedLoopErr(2500);
+//   		
+//   		/** <-----------> END THIRD-PARTY CODE <--------------> */
    		
    	}
    	
@@ -145,9 +146,27 @@ public class driveTrain extends Subsystem {
     
     public void gyroDriveStraight (double speed) {
     	double angle = Robot.gyro.getAngle();
-    	double angleCorrectionFactor = .01;
-    	robotDrive.drive(speed, -angle*angleCorrectionFactor);
+    	double angleCorrectionFactor = .3;
+    	double minimumOutput = 0.95; // This is the minimum motor speed at which the robot will turn
+    	double minimumErrorTolerance = 0.1;
+    	double error = angle;
+    	double rotation;
+    	if (Math.abs(error) > minimumErrorTolerance) {
+    		rotation = error * angleCorrectionFactor;
+    		if ((error > 0) && (rotation < minimumOutput)){
+    			rotation = minimumOutput;
+    		}
+    		else if ((error < 0) && (-rotation < minimumOutput)){
+    			rotation = -minimumOutput;
+    		}
+    			
+    	}
+		else
+			rotation=0;
+    	robotDrive.drive(speed, -rotation);
     }
+    
+  
     
     
 }

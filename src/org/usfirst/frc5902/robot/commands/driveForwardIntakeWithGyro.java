@@ -42,7 +42,7 @@ public class driveForwardIntakeWithGyro extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.leftDriveEncoder.pulseWidthPos * pulseToInches *100/(int)100 > 12 )
+    	if (Robot.leftDriveEncoder.pulseWidthPos * pulseToInches *100/(int)100 > 103 )
     			{ return true; }
     	else 
     		{ return false;}
